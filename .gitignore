@@ -1,7 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 lib
-META-INF/persistence.xml
+src/main/resources/application.properties
 
 ### STS ###
 .apt_generated
