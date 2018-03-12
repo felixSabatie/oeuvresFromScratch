@@ -1,11 +1,15 @@
 package fr.polytech.oeuvres.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -18,6 +22,7 @@ public class Adherent {
   private String nomAdherent;
   private String prenomAdherent;
   private String villeAdherent;
+  private Set<Reservation> reservations;
 
   @Id
   @Column(name = "id_adherent")
@@ -57,6 +62,17 @@ public class Adherent {
 
   public void setVilleAdherent(String villeAdherent) {
     this.villeAdherent = villeAdherent;
+  }
+
+  // JsonManagedReference pour chaque objet qui fait du OneToMany et qui load tout
+  @JsonManagedReference
+  @OneToMany(mappedBy = "adherent", cascade = CascadeType.ALL)
+  public Set<Reservation> getReservations() {
+    return this.reservations;
+  }
+
+  public void setReservations(Set<Reservation> reservations) {
+    this.reservations = reservations;
   }
 
   @Override

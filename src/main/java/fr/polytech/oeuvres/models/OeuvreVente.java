@@ -1,10 +1,14 @@
 package fr.polytech.oeuvres.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +19,7 @@ public class OeuvreVente {
   private String titreOeuvrevente;
   private String etatOeuvrevente;
   private double prixOeuvrevente;
+  private Set<Reservation> reservations;
 
   @Id
   @Column(name = "id_oeuvrevente")
@@ -54,6 +59,16 @@ public class OeuvreVente {
 
   public void setPrixOeuvrevente(double prixOeuvrevente) {
     this.prixOeuvrevente = prixOeuvrevente;
+  }
+
+  @JsonManagedReference
+  @OneToMany(mappedBy = "adherent", cascade = CascadeType.ALL)
+  public Set<Reservation> getReservations() {
+    return this.reservations;
+  }
+
+  public void setReservations(Set<Reservation> reservations) {
+    this.reservations = reservations;
   }
 
   @Override

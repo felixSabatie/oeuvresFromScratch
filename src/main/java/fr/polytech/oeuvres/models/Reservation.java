@@ -1,12 +1,16 @@
 package fr.polytech.oeuvres.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.sql.Date;
 import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +22,8 @@ public class Reservation {
   private int idAdherent;
   private Date dateReservation;
   private String statut;
+  private Adherent adherent;
+  private OeuvreVente oeuvreVente;
 
   @Id
   @Column(name = "id_oeuvrevente")
@@ -57,6 +63,29 @@ public class Reservation {
 
   public void setStatut(String statut) {
     this.statut = statut;
+  }
+
+  // JsonBackReference pour chaque objet qui fait du ManyToOne et qu'on veut qu'il lazy load
+  @JsonBackReference
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "id_adherent", insertable = false, updatable = false)
+  public Adherent getAdherent() {
+    return this.adherent;
+  }
+
+  public void setAdherent(Adherent adherent) {
+    this.adherent = adherent;
+  }
+
+  @JsonBackReference
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "id_oeuvrevente", insertable = false, updatable = false)
+  public OeuvreVente getOeuvreVente() {
+    return this.oeuvreVente;
+  }
+
+  public void setOeuvreVente(OeuvreVente oeuvreVente) {
+    this.oeuvreVente = oeuvreVente;
   }
 
   @Override
