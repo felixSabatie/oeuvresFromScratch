@@ -10,7 +10,7 @@ import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "reservation", schema = "oeuvres", catalog = "")
+@Table(name = "reservation", schema = "oeuvres")
 @IdClass(ReservationEntityPK.class)
 public class ReservationEntity {
 
