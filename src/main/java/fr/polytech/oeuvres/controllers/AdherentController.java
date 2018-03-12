@@ -8,16 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HomeController {
-  private final AdherentRepository adherentRepository;
+public class AdherentController extends Controller {
 
-  @Autowired
-  public HomeController(AdherentRepository adherentRepository) {
-    this.adherentRepository = adherentRepository;
-  }
+	private final AdherentRepository adherentRepository;
 
-  @RequestMapping("/home")
-  public List<Adherent> home() {
-    return adherentRepository.findAll();
-  }
+	@Autowired
+	public AdherentController(AdherentRepository adherentRepository) {
+		this.adherentRepository = adherentRepository;
+	}
+
+	@RequestMapping("/adherents")
+	public List<Adherent> getAllAdherent(){
+		return adherentRepository.findAll();
+	}
+
 }
