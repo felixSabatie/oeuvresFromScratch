@@ -23,6 +23,7 @@ public class Reservation {
   private Date dateReservation;
   private String statut;
   private Adherent adherent;
+  private OeuvreVente oeuvreVente;
 
   @Id
   @Column(name = "id_oeuvrevente")
@@ -74,6 +75,17 @@ public class Reservation {
 
   public void setAdherent(Adherent adherent) {
     this.adherent = adherent;
+  }
+
+  @JsonBackReference
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "id_oeuvrevente", insertable = false, updatable = false)
+  public OeuvreVente getOeuvreVente() {
+    return this.oeuvreVente;
+  }
+
+  public void setOeuvreVente(OeuvreVente oeuvreVente) {
+    this.oeuvreVente = oeuvreVente;
   }
 
   @Override
