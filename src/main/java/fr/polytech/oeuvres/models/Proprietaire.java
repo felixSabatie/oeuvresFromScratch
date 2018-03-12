@@ -1,10 +1,14 @@
 package fr.polytech.oeuvres.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +18,7 @@ public class Proprietaire {
   private int idProprietaire;
   private String nomProprietaire;
   private String prenomProprietaire;
+  private Set<OeuvrePret> oeuvresPret;
 
   @Id
   @Column(name = "id_proprietaire")
@@ -43,6 +48,16 @@ public class Proprietaire {
 
   public void setPrenomProprietaire(String prenomProprietaire) {
     this.prenomProprietaire = prenomProprietaire;
+  }
+
+  @JsonManagedReference
+  @OneToMany(mappedBy = "proprietaire", cascade = CascadeType.ALL)
+  public Set<OeuvrePret> getOeuvresPret() {
+    return this.oeuvresPret;
+  }
+
+  public void setOeuvresPret(Set<OeuvrePret> oeuvresPret) {
+    this.oeuvresPret = oeuvresPret;
   }
 
   @Override
