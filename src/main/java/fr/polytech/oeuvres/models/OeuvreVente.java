@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "oeuvrevente", schema = "oeuvres")
-public class OeuvreventeEntity {
+public class OeuvreVente {
 
   private int idOeuvrevente;
   private String titreOeuvrevente;
@@ -64,7 +64,7 @@ public class OeuvreventeEntity {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OeuvreventeEntity that = (OeuvreventeEntity) o;
+    OeuvreVente that = (OeuvreVente) o;
     return idOeuvrevente == that.idOeuvrevente &&
         Double.compare(that.prixOeuvrevente, prixOeuvrevente) == 0 &&
         Objects.equals(titreOeuvrevente, that.titreOeuvrevente) &&

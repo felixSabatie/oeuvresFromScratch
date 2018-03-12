@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "oeuvrepret", schema = "oeuvres")
-public class OeuvrepretEntity {
+public class OeuvrePret {
 
   private int idOeuvrepret;
   private String titreOeuvrepret;
@@ -42,7 +42,7 @@ public class OeuvrepretEntity {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OeuvrepretEntity that = (OeuvrepretEntity) o;
+    OeuvrePret that = (OeuvrePret) o;
     return idOeuvrepret == that.idOeuvrepret &&
         Objects.equals(titreOeuvrepret, that.titreOeuvrepret);
   }

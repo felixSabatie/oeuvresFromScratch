@@ -12,7 +12,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name = "adherent", schema = "oeuvres")
 @EntityListeners(AuditingEntityListener.class)
-public class AdherentEntity {
+public class Adherent {
 
   private int idAdherent;
   private String nomAdherent;
@@ -67,7 +67,7 @@ public class AdherentEntity {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AdherentEntity that = (AdherentEntity) o;
+    Adherent that = (Adherent) o;
     return idAdherent == that.idAdherent &&
         Objects.equals(nomAdherent, that.nomAdherent) &&
         Objects.equals(prenomAdherent, that.prenomAdherent) &&

@@ -11,8 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "reservation", schema = "oeuvres")
-@IdClass(ReservationEntityPK.class)
-public class ReservationEntity {
+@IdClass(ReservationPK.class)
+public class Reservation {
 
   private int idOeuvrevente;
   private int idAdherent;
@@ -67,7 +67,7 @@ public class ReservationEntity {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReservationEntity that = (ReservationEntity) o;
+    Reservation that = (Reservation) o;
     return idOeuvrevente == that.idOeuvrevente &&
         idAdherent == that.idAdherent &&
         Objects.equals(dateReservation, that.dateReservation) &&

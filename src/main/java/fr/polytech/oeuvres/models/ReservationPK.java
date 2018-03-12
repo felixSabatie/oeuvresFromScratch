@@ -5,7 +5,7 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
-public class ReservationEntityPK implements Serializable {
+public class ReservationPK implements Serializable {
 
   private int idOeuvrevente;
   private int idAdherent;
@@ -38,7 +38,7 @@ public class ReservationEntityPK implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReservationEntityPK that = (ReservationEntityPK) o;
+    ReservationPK that = (ReservationPK) o;
     return idOeuvrevente == that.idOeuvrevente &&
         idAdherent == that.idAdherent;
   }
