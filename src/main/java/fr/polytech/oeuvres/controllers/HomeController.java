@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
+  private final AdherentRepository adherentRepository;
+
   @Autowired
-  private AdherentRepository adherentRepository;
+  public HomeController(AdherentRepository adherentRepository) {
+    this.adherentRepository = adherentRepository;
+  }
 
   @RequestMapping("/home")
   public List<Adherent> home() {
