@@ -44,7 +44,7 @@ public class AdherentController extends Controller {
 
 	@PutMapping("/adherents/{id}")
 	public Adherent modifyAdherent(@PathVariable(value = "id") int id,
-													@Valid @RequestBody Adherent adherentPayload) {
+		@Valid @RequestBody Adherent adherentPayload) {
 
 		Adherent adherent = adherentRepository.findById(id)
 			.orElseThrow(() -> new ResourceNotFoundException("Adherent", "id", id));

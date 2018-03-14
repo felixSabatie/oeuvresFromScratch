@@ -1,7 +1,6 @@
 package fr.polytech.oeuvres.controllers;
 
 import fr.polytech.oeuvres.exceptions.ResourceNotFoundException;
-import fr.polytech.oeuvres.models.Adherent;
 import fr.polytech.oeuvres.models.Proprietaire;
 import fr.polytech.oeuvres.repositories.ProprietaireRepository;
 import java.util.List;
@@ -39,7 +38,7 @@ public class ProprietaireController extends Controller {
 	}
 
 	@PostMapping("/proprietaires")
-	public Proprietaire createProprietaire(@Valid @RequestBody Proprietaire proprietaire){
+	public Proprietaire createProprietaire(@Valid @RequestBody Proprietaire proprietaire) {
 		return proprietaireRepository.save(proprietaire);
 	}
 

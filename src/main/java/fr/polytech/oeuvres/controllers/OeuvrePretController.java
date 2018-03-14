@@ -37,16 +37,16 @@ public class OeuvrePretController extends Controller {
 	@GetMapping("/oeuvrespret/{id}")
 	public OeuvrePret getOeuvrePretById(@PathVariable(value = "id") int oeuvrePretId) {
 		return oeuvrePretRepository.findById(oeuvrePretId).orElseThrow(
-				() -> new ResourceNotFoundException("OeuvrePret", "id", oeuvrePretId)
+			() -> new ResourceNotFoundException("OeuvrePret", "id", oeuvrePretId)
 		);
 	}
 
 	@PutMapping("/oeuvrespret/{id}")
 	public OeuvrePret modifyOeuvrePret(@PathVariable(value = "id") int id,
-			@Valid @RequestBody OeuvrePret oeuvrePretPayload) {
+		@Valid @RequestBody OeuvrePret oeuvrePretPayload) {
 
 		OeuvrePret oeuvrePret = oeuvrePretRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("OeuvrePret", "id", id));
+			.orElseThrow(() -> new ResourceNotFoundException("OeuvrePret", "id", id));
 
 		oeuvrePret.setProprietaire(oeuvrePretPayload.getProprietaire());
 		oeuvrePret.setTitreOeuvrepret(oeuvrePretPayload.getTitreOeuvrepret());

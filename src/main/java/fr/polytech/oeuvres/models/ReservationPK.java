@@ -7,45 +7,45 @@ import javax.persistence.Id;
 
 public class ReservationPK implements Serializable {
 
-  private int idOeuvrevente;
-  private int idAdherent;
+	private int idOeuvrevente;
+	private int idAdherent;
 
-  @Column(name = "id_oeuvrevente")
-  @Id
-  public int getIdOeuvrevente() {
-    return idOeuvrevente;
-  }
+	@Column(name = "id_oeuvrevente")
+	@Id
+	public int getIdOeuvrevente() {
+		return idOeuvrevente;
+	}
 
-  public void setIdOeuvrevente(int idOeuvrevente) {
-    this.idOeuvrevente = idOeuvrevente;
-  }
+	public void setIdOeuvrevente(int idOeuvrevente) {
+		this.idOeuvrevente = idOeuvrevente;
+	}
 
-  @Column(name = "id_adherent")
-  @Id
-  public int getIdAdherent() {
-    return idAdherent;
-  }
+	@Column(name = "id_adherent")
+	@Id
+	public int getIdAdherent() {
+		return idAdherent;
+	}
 
-  public void setIdAdherent(int idAdherent) {
-    this.idAdherent = idAdherent;
-  }
+	public void setIdAdherent(int idAdherent) {
+		this.idAdherent = idAdherent;
+	}
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ReservationPK that = (ReservationPK) o;
-    return idOeuvrevente == that.idOeuvrevente &&
-        idAdherent == that.idAdherent;
-  }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		ReservationPK that = (ReservationPK) o;
+		return idOeuvrevente == that.idOeuvrevente &&
+			idAdherent == that.idAdherent;
+	}
 
-  @Override
-  public int hashCode() {
+	@Override
+	public int hashCode() {
 
-    return Objects.hash(idOeuvrevente, idAdherent);
-  }
+		return Objects.hash(idOeuvrevente, idAdherent);
+	}
 }

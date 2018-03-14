@@ -15,68 +15,68 @@ import javax.persistence.Table;
 @Table(name = "proprietaire", schema = "oeuvres")
 public class Proprietaire {
 
-  private int idProprietaire;
-  private String nomProprietaire;
-  private String prenomProprietaire;
-  private Set<OeuvrePret> oeuvresPret;
+	private int idProprietaire;
+	private String nomProprietaire;
+	private String prenomProprietaire;
+	private Set<OeuvrePret> oeuvresPret;
 
-  @Id
-  @Column(name = "id_proprietaire")
-  public int getIdProprietaire() {
-    return idProprietaire;
-  }
+	@Id
+	@Column(name = "id_proprietaire")
+	public int getIdProprietaire() {
+		return idProprietaire;
+	}
 
-  public void setIdProprietaire(int idProprietaire) {
-    this.idProprietaire = idProprietaire;
-  }
+	public void setIdProprietaire(int idProprietaire) {
+		this.idProprietaire = idProprietaire;
+	}
 
-  @Basic
-  @Column(name = "nom_proprietaire")
-  public String getNomProprietaire() {
-    return nomProprietaire;
-  }
+	@Basic
+	@Column(name = "nom_proprietaire")
+	public String getNomProprietaire() {
+		return nomProprietaire;
+	}
 
-  public void setNomProprietaire(String nomProprietaire) {
-    this.nomProprietaire = nomProprietaire;
-  }
+	public void setNomProprietaire(String nomProprietaire) {
+		this.nomProprietaire = nomProprietaire;
+	}
 
-  @Basic
-  @Column(name = "prenom_proprietaire")
-  public String getPrenomProprietaire() {
-    return prenomProprietaire;
-  }
+	@Basic
+	@Column(name = "prenom_proprietaire")
+	public String getPrenomProprietaire() {
+		return prenomProprietaire;
+	}
 
-  public void setPrenomProprietaire(String prenomProprietaire) {
-    this.prenomProprietaire = prenomProprietaire;
-  }
+	public void setPrenomProprietaire(String prenomProprietaire) {
+		this.prenomProprietaire = prenomProprietaire;
+	}
 
-  @JsonManagedReference
-  @OneToMany(mappedBy = "proprietaire", cascade = CascadeType.ALL)
-  public Set<OeuvrePret> getOeuvresPret() {
-    return this.oeuvresPret;
-  }
+	@JsonManagedReference
+	@OneToMany(mappedBy = "proprietaire", cascade = CascadeType.ALL)
+	public Set<OeuvrePret> getOeuvresPret() {
+		return this.oeuvresPret;
+	}
 
-  public void setOeuvresPret(Set<OeuvrePret> oeuvresPret) {
-    this.oeuvresPret = oeuvresPret;
-  }
+	public void setOeuvresPret(Set<OeuvrePret> oeuvresPret) {
+		this.oeuvresPret = oeuvresPret;
+	}
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Proprietaire that = (Proprietaire) o;
-    return idProprietaire == that.idProprietaire &&
-        Objects.equals(nomProprietaire, that.nomProprietaire) &&
-        Objects.equals(prenomProprietaire, that.prenomProprietaire);
-  }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Proprietaire that = (Proprietaire) o;
+		return idProprietaire == that.idProprietaire &&
+			Objects.equals(nomProprietaire, that.nomProprietaire) &&
+			Objects.equals(prenomProprietaire, that.prenomProprietaire);
+	}
 
-  @Override
-  public int hashCode() {
+	@Override
+	public int hashCode() {
 
-    return Objects.hash(idProprietaire, nomProprietaire, prenomProprietaire);
-  }
+		return Objects.hash(idProprietaire, nomProprietaire, prenomProprietaire);
+	}
 }

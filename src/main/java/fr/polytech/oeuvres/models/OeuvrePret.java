@@ -15,57 +15,57 @@ import javax.persistence.Table;
 @Table(name = "oeuvrepret", schema = "oeuvres")
 public class OeuvrePret {
 
-  private int idOeuvrepret;
-  private String titreOeuvrepret;
-  private Proprietaire proprietaire;
+	private int idOeuvrepret;
+	private String titreOeuvrepret;
+	private Proprietaire proprietaire;
 
-  @Id
-  @Column(name = "id_oeuvrepret")
-  public int getIdOeuvrepret() {
-    return idOeuvrepret;
-  }
+	@Id
+	@Column(name = "id_oeuvrepret")
+	public int getIdOeuvrepret() {
+		return idOeuvrepret;
+	}
 
-  public void setIdOeuvrepret(int idOeuvrepret) {
-    this.idOeuvrepret = idOeuvrepret;
-  }
+	public void setIdOeuvrepret(int idOeuvrepret) {
+		this.idOeuvrepret = idOeuvrepret;
+	}
 
-  @Basic
-  @Column(name = "titre_oeuvrepret")
-  public String getTitreOeuvrepret() {
-    return titreOeuvrepret;
-  }
+	@Basic
+	@Column(name = "titre_oeuvrepret")
+	public String getTitreOeuvrepret() {
+		return titreOeuvrepret;
+	}
 
-  public void setTitreOeuvrepret(String titreOeuvrepret) {
-    this.titreOeuvrepret = titreOeuvrepret;
-  }
+	public void setTitreOeuvrepret(String titreOeuvrepret) {
+		this.titreOeuvrepret = titreOeuvrepret;
+	}
 
-  @JsonBackReference
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "id_proprietaire", insertable = false, updatable = false)
-  public Proprietaire getProprietaire() {
-    return this.proprietaire;
-  }
+	@JsonBackReference
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_proprietaire", insertable = false, updatable = false)
+	public Proprietaire getProprietaire() {
+		return this.proprietaire;
+	}
 
-  public void setProprietaire(Proprietaire proprietaire) {
-    this.proprietaire = proprietaire;
-  }
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    OeuvrePret that = (OeuvrePret) o;
-    return idOeuvrepret == that.idOeuvrepret &&
-        Objects.equals(titreOeuvrepret, that.titreOeuvrepret);
-  }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		OeuvrePret that = (OeuvrePret) o;
+		return idOeuvrepret == that.idOeuvrepret &&
+			Objects.equals(titreOeuvrepret, that.titreOeuvrepret);
+	}
 
-  @Override
-  public int hashCode() {
+	@Override
+	public int hashCode() {
 
-    return Objects.hash(idOeuvrepret, titreOeuvrepret);
-  }
+		return Objects.hash(idOeuvrepret, titreOeuvrepret);
+	}
 }

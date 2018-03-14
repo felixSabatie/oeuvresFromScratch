@@ -15,51 +15,51 @@ import javax.persistence.Table;
 @Table(name = "oeuvrevente", schema = "oeuvres")
 public class OeuvreVente {
 
-  private int idOeuvrevente;
-  private String titreOeuvrevente;
-  private String etatOeuvrevente;
-  private double prixOeuvrevente;
-  private Set<Reservation> reservations;
+	private int idOeuvrevente;
+	private String titreOeuvrevente;
+	private String etatOeuvrevente;
+	private double prixOeuvrevente;
+	private Set<Reservation> reservations;
 
-  @Id
-  @Column(name = "id_oeuvrevente")
-  public int getIdOeuvrevente() {
-    return idOeuvrevente;
-  }
+	@Id
+	@Column(name = "id_oeuvrevente")
+	public int getIdOeuvrevente() {
+		return idOeuvrevente;
+	}
 
-  public void setIdOeuvrevente(int idOeuvrevente) {
-    this.idOeuvrevente = idOeuvrevente;
-  }
+	public void setIdOeuvrevente(int idOeuvrevente) {
+		this.idOeuvrevente = idOeuvrevente;
+	}
 
-  @Basic
-  @Column(name = "titre_oeuvrevente")
-  public String getTitreOeuvrevente() {
-    return titreOeuvrevente;
-  }
+	@Basic
+	@Column(name = "titre_oeuvrevente")
+	public String getTitreOeuvrevente() {
+		return titreOeuvrevente;
+	}
 
-  public void setTitreOeuvrevente(String titreOeuvrevente) {
-    this.titreOeuvrevente = titreOeuvrevente;
-  }
+	public void setTitreOeuvrevente(String titreOeuvrevente) {
+		this.titreOeuvrevente = titreOeuvrevente;
+	}
 
-  @Basic
-  @Column(name = "etat_oeuvrevente")
-  public String getEtatOeuvrevente() {
-    return etatOeuvrevente;
-  }
+	@Basic
+	@Column(name = "etat_oeuvrevente")
+	public String getEtatOeuvrevente() {
+		return etatOeuvrevente;
+	}
 
-  public void setEtatOeuvrevente(String etatOeuvrevente) {
-    this.etatOeuvrevente = etatOeuvrevente;
-  }
+	public void setEtatOeuvrevente(String etatOeuvrevente) {
+		this.etatOeuvrevente = etatOeuvrevente;
+	}
 
-  @Basic
-  @Column(name = "prix_oeuvrevente")
-  public double getPrixOeuvrevente() {
-    return prixOeuvrevente;
-  }
+	@Basic
+	@Column(name = "prix_oeuvrevente")
+	public double getPrixOeuvrevente() {
+		return prixOeuvrevente;
+	}
 
-  public void setPrixOeuvrevente(double prixOeuvrevente) {
-    this.prixOeuvrevente = prixOeuvrevente;
-  }
+	public void setPrixOeuvrevente(double prixOeuvrevente) {
+		this.prixOeuvrevente = prixOeuvrevente;
+	}
 
   @JsonManagedReference
   @OneToMany(mappedBy = "oeuvreVente", cascade = CascadeType.ALL)
@@ -67,28 +67,28 @@ public class OeuvreVente {
     return this.reservations;
   }
 
-  public void setReservations(Set<Reservation> reservations) {
-    this.reservations = reservations;
-  }
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
+	}
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    OeuvreVente that = (OeuvreVente) o;
-    return idOeuvrevente == that.idOeuvrevente &&
-        Double.compare(that.prixOeuvrevente, prixOeuvrevente) == 0 &&
-        Objects.equals(titreOeuvrevente, that.titreOeuvrevente) &&
-        Objects.equals(etatOeuvrevente, that.etatOeuvrevente);
-  }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		OeuvreVente that = (OeuvreVente) o;
+		return idOeuvrevente == that.idOeuvrevente &&
+			Double.compare(that.prixOeuvrevente, prixOeuvrevente) == 0 &&
+			Objects.equals(titreOeuvrevente, that.titreOeuvrevente) &&
+			Objects.equals(etatOeuvrevente, that.etatOeuvrevente);
+	}
 
-  @Override
-  public int hashCode() {
+	@Override
+	public int hashCode() {
 
-    return Objects.hash(idOeuvrevente, titreOeuvrevente, etatOeuvrevente, prixOeuvrevente);
-  }
+		return Objects.hash(idOeuvrevente, titreOeuvrevente, etatOeuvrevente, prixOeuvrevente);
+	}
 }
