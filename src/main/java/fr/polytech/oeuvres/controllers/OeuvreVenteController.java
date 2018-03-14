@@ -1,11 +1,14 @@
 package fr.polytech.oeuvres.controllers;
 
 import fr.polytech.oeuvres.exceptions.ResourceNotFoundException;
+import fr.polytech.oeuvres.models.OeuvrePret;
 import fr.polytech.oeuvres.models.OeuvreVente;
 import fr.polytech.oeuvres.repositories.OeuvreVenteRepository;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,5 +56,17 @@ public class OeuvreVenteController extends Controller {
 		oeuvreVente.setTitreOeuvrevente(oeuvreVentePayload.getTitreOeuvrevente());
 
 		return oeuvreVenteRepository.save(oeuvreVente);
+	}
+
+	@DeleteMapping("/oeuvresvente/{id}")
+	public ResponseEntity<?> deleteOeuvreVente(@PathVariable(value = "id") int id) {
+		OeuvreVente oeuvreVente = oeuvreVenteRepository.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("OeuvreVente", "id", id)
+		);
+
+		oeuvreVenteRepository.delete(oeuvreVente);
+
+		return ResponseEntity.ok().build();
+
 	}
 }

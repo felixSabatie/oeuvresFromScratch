@@ -6,6 +6,8 @@ import fr.polytech.oeuvres.repositories.OeuvrePretRepository;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,5 +54,17 @@ public class OeuvrePretController extends Controller {
 		oeuvrePret.setTitreOeuvrepret(oeuvrePretPayload.getTitreOeuvrepret());
 
 		return oeuvrePretRepository.save(oeuvrePret);
+	}
+
+	@DeleteMapping("/oeuvrespret/{id}")
+	public ResponseEntity<?> deleteOeuvreVente(@PathVariable(value = "id") int id) {
+		OeuvrePret oeuvrePret = oeuvrePretRepository.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("OeuvrePret", "id", id)
+		);
+
+		oeuvrePretRepository.delete(oeuvrePret);
+
+		return ResponseEntity.ok().build();
+
 	}
 }
