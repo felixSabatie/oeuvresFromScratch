@@ -50,7 +50,6 @@ public class OeuvreVenteController extends Controller {
 
 		oeuvreVente.setEtatOeuvrevente(oeuvreVentePayload.getEtatOeuvrevente());
 		oeuvreVente.setPrixOeuvrevente(oeuvreVentePayload.getPrixOeuvrevente());
-		oeuvreVente.setReservations(oeuvreVentePayload.getReservations());
 		oeuvreVente.setTitreOeuvrevente(oeuvreVentePayload.getTitreOeuvrevente());
 
 		return oeuvreVenteRepository.save(oeuvreVente);

@@ -49,7 +49,6 @@ public class ProprietaireController extends Controller {
 
 		proprietaire.setNomProprietaire(proprietairePayload.getNomProprietaire());
 		proprietaire.setPrenomProprietaire(proprietairePayload.getPrenomProprietaire());
-		proprietaire.setOeuvresPret(proprietairePayload.getOeuvresPret());
 
 		return proprietaireRepository.save(proprietaire);
 	}
