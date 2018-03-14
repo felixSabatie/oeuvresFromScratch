@@ -62,7 +62,7 @@ public class OeuvreVente {
   }
 
   @JsonManagedReference
-  @OneToMany(mappedBy = "adherent", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "oeuvreVente", cascade = CascadeType.ALL)
   public Set<Reservation> getReservations() {
     return this.reservations;
   }
