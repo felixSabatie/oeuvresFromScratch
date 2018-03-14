@@ -15,9 +15,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "reservation", schema = "oeuvres")
-@IdClass(ReservationPK.class)
 public class Reservation {
 
+	private int idReservation;
 	private int idOeuvrevente;
 	private int idAdherent;
 	private Date dateReservation;
@@ -26,6 +26,15 @@ public class Reservation {
 	private OeuvreVente oeuvreVente;
 
 	@Id
+	@Column(name = "id_reservation")
+	public int getIdReservation() {
+		return idReservation;
+	}
+
+	public void setIdReservation(int idReservation) {
+		this.idReservation = idReservation;
+	}
+
 	@Column(name = "id_oeuvrevente")
 	public int getIdOeuvrevente() {
 		return idOeuvrevente;
@@ -35,7 +44,6 @@ public class Reservation {
 		this.idOeuvrevente = idOeuvrevente;
 	}
 
-	@Id
 	@Column(name = "id_adherent")
 	public int getIdAdherent() {
 		return idAdherent;
