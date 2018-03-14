@@ -46,7 +46,7 @@ public class ProprietaireController extends Controller {
 	public Proprietaire modifyProprietaire(@PathVariable(value = "id") int id, @
 		Valid @RequestBody Proprietaire proprietairePayload) {
 		Proprietaire proprietaire = proprietaireRepository.findById(id)
-			.orElseThrow(() -> new ResourceNotFoundException("Adherent", "id", id));
+			.orElseThrow(() -> new ResourceNotFoundException("Proprietaire", "id", id));
 
 		proprietaire.setNomProprietaire(proprietairePayload.getNomProprietaire());
 		proprietaire.setPrenomProprietaire(proprietairePayload.getPrenomProprietaire());
@@ -54,10 +54,10 @@ public class ProprietaireController extends Controller {
 		return proprietaireRepository.save(proprietaire);
 	}
 
-	@DeleteMapping("/proprietaire/{id}")
-	public ResponseEntity<?> deleteAdherent(@PathVariable(value = "id") int id) {
+	@DeleteMapping("/proprietaires/{id}")
+	public ResponseEntity<?> deleteProprietaire(@PathVariable(value = "id") int id) {
 		Proprietaire proprietaire = proprietaireRepository.findById(id).orElseThrow(
-			() -> new ResourceNotFoundException("Adherent", "id", id)
+			() -> new ResourceNotFoundException("Proprietaire", "id", id)
 		);
 
 		proprietaireRepository.delete(proprietaire);
