@@ -7,6 +7,8 @@ import fr.polytech.oeuvres.repositories.ProprietaireRepository;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,5 +53,16 @@ public class ProprietaireController extends Controller {
 		proprietaire.setPrenomProprietaire(proprietairePayload.getPrenomProprietaire());
 
 		return proprietaireRepository.save(proprietaire);
+	}
+
+	@DeleteMapping("/proprietaire/{id}")
+	public ResponseEntity<?> deleteAdherent(@PathVariable(value = "id") int id) {
+		Proprietaire proprietaire = proprietaireRepository.findById(id).orElseThrow(
+			() -> new ResourceNotFoundException("Adherent", "id", id)
+		);
+
+		proprietaireRepository.delete(proprietaire);
+
+		return ResponseEntity.ok().build();
 	}
 }

@@ -6,6 +6,8 @@ import fr.polytech.oeuvres.repositories.AdherentRepository;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,4 +56,15 @@ public class AdherentController extends Controller {
 		return adherentRepository.save(adherent);
 	}
 
+	@DeleteMapping("/adherents/{id}")
+	public ResponseEntity<?> deleteAdherent(@PathVariable(value = "id") int id) {
+		Adherent adherent = adherentRepository.findById(id).orElseThrow(
+			() -> new ResourceNotFoundException("Adherent", "id", id)
+		);
+
+		adherentRepository.delete(adherent);
+
+		return ResponseEntity.ok().build();
+
+	}
 }
