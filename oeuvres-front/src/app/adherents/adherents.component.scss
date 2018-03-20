@@ -1,0 +1,13 @@
+@import "../../colors.scss";
+
+h1 {
+  color: $primary;
+}
+
+.adherents {
+  ul {
+    li {
+      color: $secondary;
+    }
+  }
+}

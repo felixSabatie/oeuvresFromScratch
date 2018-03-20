@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AdherentsComponent } from './adherents/adherents.component';
 import {RouterModule} from "@angular/router";
+import {AdherentsService} from "./adherents/adherents.service";
 
 const routes = [
   {
@@ -25,7 +26,7 @@ const routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [AdherentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

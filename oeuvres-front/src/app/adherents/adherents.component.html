@@ -1,3 +1,7 @@
-<p>
-  adherents works!
-</p>
+<h1>Liste des adhérents</h1>
+
+<div class="adherents" *ngIf="adherents">
+  <ul>
+    <li *ngFor="let adherent of adherents">{{ adherent.prenomAdherent }} {{ adherent.nomAdherent }}</li>
+  </ul>
+</div>
