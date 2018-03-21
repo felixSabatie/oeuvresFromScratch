@@ -1,3 +1,27 @@
-<p>
-  reservations works!
-</p>
+<h2 class="title is-2">Liste des réservations</h2>
+
+<div class="adherents content" *ngIf="reservations">
+  <table class="table is-bordered is-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Id Oeuvre Vente</th>
+      <th>Id adhérent</th>
+      <th>Date réservation</th>
+      <th>Statut</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let reservation of reservations">
+      <td>{{ reservation.idReservation }}</td>
+      <td>{{ reservation.idOeuvrevente }}</td>
+      <td>{{ reservation.idAdherent }}</td>
+      <td>{{ reservation.dateReservation }}</td>
+      <td>{{ reservation.statut }}</td>
+      <td><a class="button is-outlined is-primary"><i class="fa fa-edit"></i></a>
+        <a class="button is-outlined is-danger"><i class="fa fa-trash"></i></a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

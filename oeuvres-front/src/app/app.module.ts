@@ -10,6 +10,7 @@ import {AdherentsService} from "./adherents/adherents.service";
 import { NavbarComponent } from './navbar/navbar.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { HomeComponent } from './home/home.component';
+import {ReservationsService} from "./reservations/reservations.service";
 
 const routes = [
   {
@@ -19,6 +20,10 @@ const routes = [
   {
     path: 'adherents',
     component: AdherentsComponent
+  },
+  {
+    path: 'reservations',
+    component: ReservationsComponent
   }
 ];
 
@@ -36,7 +41,10 @@ const routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [AdherentsService],
+  providers: [
+    AdherentsService,
+    ReservationsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
