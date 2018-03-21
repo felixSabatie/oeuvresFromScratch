@@ -1,6 +1,6 @@
-<h1>Liste des adhérents</h1>
+<h2 class="title is-2">Liste des adhérents</h2>
 
-<div class="adherents" *ngIf="adherents">
+<div class="adherents content" *ngIf="adherents">
   <ul>
     <li *ngFor="let adherent of adherents">{{ adherent.prenomAdherent }} {{ adherent.nomAdherent }}</li>
   </ul>
