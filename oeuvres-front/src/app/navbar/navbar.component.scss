@@ -1,6 +1,12 @@
 @import "../../colors";
 
 .navbar {
-  background-color: $lightGrey;
-  border-radius: 5px;
+  background-color: $primary;
+  margin-bottom: 10px;
+
+  .navbar-item {
+    &:hover {
+      color: $primary;
+    }
+  }
 }

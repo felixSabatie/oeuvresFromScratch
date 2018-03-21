@@ -1,7 +1,25 @@
 <h2 class="title is-2">Liste des adhérents</h2>
 
 <div class="adherents content" *ngIf="adherents">
-  <ul>
-    <li *ngFor="let adherent of adherents">{{ adherent.prenomAdherent }} {{ adherent.nomAdherent }}</li>
-  </ul>
+  <table class="table is-bordered is-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Ville</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let adherent of adherents">
+      <td>{{ adherent.idAdherent }}</td>
+      <td>{{ adherent.nomAdherent }}</td>
+      <td>{{ adherent.prenomAdherent }}</td>
+      <td>{{ adherent.villeAdherent }}</td>
+      <td><a class="button is-primary"><i class="fa fa-edit"></i></a>
+        <a class="button is-danger"><i class="fa fa-trash"></i></a></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
