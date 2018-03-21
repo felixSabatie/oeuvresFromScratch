@@ -1,0 +1,27 @@
+<h2 class="title is-2">Liste des oeuvres</h2>
+
+<div class="adherents content" *ngIf="oeuvres">
+  <table class="table is-bordered is-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Titre</th>
+      <th>Etat</th>
+      <th>Prix</th>
+      <th>Rervations</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let oeuvre of oeuvres">
+      <td>{{ oeuvre.idOeuvrevente }}</td>
+      <td>{{ oeuvre.titreOeuvrevente }}</td>
+      <td>{{ oeuvre.etatOeuvrevente }}</td>
+      <td>{{ oeuvre.prixOeuvrevente }}</td>
+      <td> <!--TODO : Link to reservations for this oeuvre--> Reservations </td>
+      <td><a class="button is-outlined is-primary"><i class="fa fa-edit"></i></a>
+        <a class="button is-outlined is-danger"><i class="fa fa-trash"></i></a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
