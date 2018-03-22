@@ -3,16 +3,18 @@ import {Http} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import {Reservation} from "../models/Reservation";
+import {Env} from "../Env";
 
 @Injectable()
 export class ReservationsService {
+  private static apiUrl = Env.API_URL + 'reservations';
 
   constructor(private http: Http) {
   }
 
   getReservations(): Observable<Reservation[]> {
     return this.http
-      .get("http://localhost:8080/api/reservations")
+      .get(ReservationsService.apiUrl)
       .map(reservation => reservation.json())
   }
 }
