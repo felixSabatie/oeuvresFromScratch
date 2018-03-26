@@ -16,6 +16,8 @@ import {OeuvresService} from "./oeuvres/oeuvres.service";
 import { AdherentFormComponent } from './adherents/adherent-form/adherent-form.component';
 import { AdherentCreateComponent } from './adherents/adherent-create/adherent-create.component';
 import { AdherentEditComponent } from './adherents/adherent-edit/adherent-edit.component';
+import { ReservationFormComponent } from './reservations/reservation-form/reservation-form.component';
+import { ReservationCreateComponent } from './reservations/reservation-create/reservation-create.component';
 
 // TODO 26/03/2018 Irindul : Routes with child rather than adherent, adherent/create ect...
 const routes = [
@@ -41,7 +43,7 @@ const routes = [
   },
   {
     path: 'reservations/create',
-    component: ReservationsComponent
+    component: ReservationCreateComponent
   },
   {
     path: 'oeuvres',
@@ -59,7 +61,9 @@ const routes = [
     OeuvresComponent,
     AdherentFormComponent,
     AdherentCreateComponent,
-    AdherentEditComponent
+    AdherentEditComponent,
+    ReservationFormComponent,
+    ReservationCreateComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
