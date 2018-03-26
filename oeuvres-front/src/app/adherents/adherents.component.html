@@ -1,25 +1,30 @@
-<h2 class="title is-2">Liste des adhérents</h2>
+<div *ngIf="adherents">
+  <h2 class="title is-2">Liste des adhérents</h2>
 
-<div class="adherents content" *ngIf="adherents">
-  <table class="table is-bordered is-striped">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Prénom</th>
-      <th>Nom</th>
-      <th>Ville</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let adherent of adherents">
-      <td>{{ adherent.idAdherent }}</td>
-      <td>{{ adherent.nomAdherent }}</td>
-      <td>{{ adherent.prenomAdherent }}</td>
-      <td>{{ adherent.villeAdherent }}</td>
-      <td><a class="button is-outlined is-primary"><i class="fa fa-edit"></i></a>
-        <a class="button is-outlined is-danger"><i class="fa fa-trash"></i></a></td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="adherents content">
+    <table class="table is-bordered is-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Ville</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let adherent of adherents">
+        <td>{{ adherent.idAdherent }}</td>
+        <td>{{ adherent.nomAdherent }}</td>
+        <td>{{ adherent.prenomAdherent }}</td>
+        <td>{{ adherent.villeAdherent }}</td>
+        <td><a class="button is-outlined is-primary"><i class="fa fa-edit"></i></a>
+          <a class="button is-outlined is-danger"><i class="fa fa-trash"></i></a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a routerLink="/adherents/create" class="button is-outlined is-primary">Ajouter un adhérent</a>
+
 </div>

@@ -14,7 +14,13 @@ export class AdherentsService {
 
   getAdherents(): Observable<Adherent[]> {
     return this.http.get(AdherentsService.apiUrl)
-      .map(adherent => adherent.json());
+      .map(adherents => adherents.json());
+  }
+
+  addAdherents(adherent: Adherent): Observable<Adherent> {
+    console.log(adherent);
+    return this.http.post(AdherentsService.apiUrl, adherent)
+      .map(adherent => adherent.json())
   }
 
 }

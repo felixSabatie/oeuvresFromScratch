@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()" >
+  <div class="form-group">
+    <label for="name">
+      Nom
+    </label>
+    <input id="name"
+           type="text"
+           [(ngModel)]="adherent.nomAdherent"
+           name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="prenom">
+      Prénom
+    </label>
+    <input id="prenom"
+           type="text"
+           [(ngModel)]="adherent.prenomAdherent"
+           name="prenom">
+  </div>
+
+  <div class="form-group">
+    <label for="ville">
+      Ville
+    </label>
+    <input id="ville"
+           type="text"
+           [(ngModel)]="adherent.villeAdherent"
+           name="ville">
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+
+</form>
