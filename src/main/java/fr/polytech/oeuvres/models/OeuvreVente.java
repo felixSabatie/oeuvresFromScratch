@@ -61,7 +61,7 @@ public class OeuvreVente {
 		this.prixOeuvrevente = prixOeuvrevente;
 	}
 
-  @JsonManagedReference
+  @JsonManagedReference(value = "oeuvreVente-reservation")
   @OneToMany(mappedBy = "oeuvreVente", cascade = CascadeType.ALL)
   public Set<Reservation> getReservations() {
     return this.reservations;

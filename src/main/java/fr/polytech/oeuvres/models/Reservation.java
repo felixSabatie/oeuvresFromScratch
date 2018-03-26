@@ -74,7 +74,7 @@ public class Reservation {
 	}
 
 	// JsonBackReference pour chaque objet qui fait du ManyToOne et qu'on veut qu'il lazy load
-	@JsonBackReference
+	@JsonBackReference(value = "adherent-reservation")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_adherent", insertable = false, updatable = false)
 	public Adherent getAdherent() {
@@ -85,7 +85,7 @@ public class Reservation {
 		this.adherent = adherent;
 	}
 
-	@JsonBackReference
+	@JsonBackReference(value = "oeuvreVente-reservation")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_oeuvrevente", insertable = false, updatable = false)
 	public OeuvreVente getOeuvreVente() {

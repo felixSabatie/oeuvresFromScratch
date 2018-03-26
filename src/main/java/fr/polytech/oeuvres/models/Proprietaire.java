@@ -50,7 +50,7 @@ public class Proprietaire {
 		this.prenomProprietaire = prenomProprietaire;
 	}
 
-	@JsonManagedReference
+	@JsonManagedReference(value = "oeuvrePret-proprietaire")
 	@OneToMany(mappedBy = "proprietaire", cascade = CascadeType.ALL)
 	public Set<OeuvrePret> getOeuvresPret() {
 		return this.oeuvresPret;

@@ -33,9 +33,8 @@ public class AdherentController extends Controller {
 		return adherentRepository.findAll();
 	}
 
-	@RequestMapping(path="/adherents", method = RequestMethod.POST ,consumes={MediaType.APPLICATION_JSON_VALUE})
+	@PostMapping("/adherents")
 	public Adherent createAdherent(@Valid @RequestBody Adherent adherent) {
-		System.err.println("Coucou");
 		return adherentRepository.save(adherent);
 	}
 

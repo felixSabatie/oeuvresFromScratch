@@ -19,7 +19,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name = "adherent", schema = "oeuvres")
 @EntityListeners(AuditingEntityListener.class)
-public class Adherent implements Serializable {
+public class Adherent {
 
 	private int idAdherent;
 	private String nomAdherent;
@@ -68,7 +68,7 @@ public class Adherent implements Serializable {
 	}
 
 	// JsonManagedReference pour chaque objet qui fait du OneToMany et qui load tout
-	@JsonManagedReference
+	@JsonManagedReference(value = "adherent-reservation")
 	@JsonIgnore
 	@OneToMany(mappedBy = "adherent", cascade = CascadeType.ALL)
 	public Set<Reservation> getReservations() {
