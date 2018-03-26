@@ -9,8 +9,6 @@ import {AdherentsService} from "./adherents.service";
 })
 export class AdherentsComponent implements OnInit {
   adherents: Adherent[];
-  selectedAdherent: Adherent;
-
   constructor(private adherentsService: AdherentsService) {
   }
 
@@ -20,4 +18,11 @@ export class AdherentsComponent implements OnInit {
       error => console.error(error));
   }
 
+  delete(adherent: Adherent){
+    this.adherents = this.adherents.filter(ad => ad !== adherent);
+    this.adherentsService.deleteAdherent(adherent.idAdherent).subscribe(
+      adherent => {/* Nothing to do here */},
+      error => console.error(error)
+    );
+  }
 }

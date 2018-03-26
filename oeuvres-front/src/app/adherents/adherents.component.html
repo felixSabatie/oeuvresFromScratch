@@ -1,7 +1,5 @@
 <div *ngIf="adherents">
   <h2 class="title is-2">Liste des adhérents</h2>
-
-
   <a routerLink="/adherents/create" class="button is-primary">Ajouter un adhérent</a>
 
   <div class="adherents content">
@@ -26,7 +24,7 @@
              class="button is-outlined is-primary">
             <i class="fa fa-edit"></i>
           </a>
-          <a class="button is-outlined is-danger">
+          <a class="button is-outlined is-danger" (click)="delete(adherent)">
             <i class="fa fa-trash"></i>
           </a>
         </td>
