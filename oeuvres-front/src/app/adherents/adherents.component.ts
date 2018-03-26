@@ -19,10 +19,18 @@ export class AdherentsComponent implements OnInit {
   }
 
   delete(adherent: Adherent){
-    this.adherents = this.adherents.filter(ad => ad !== adherent);
-    this.adherentsService.deleteAdherent(adherent.idAdherent).subscribe(
-      adherent => {/* Nothing to do here */},
-      error => console.error(error)
-    );
+    const message = "Confirmer la suppresion de " +
+      adherent.nomAdherent +
+      " " +
+      adherent.prenomAdherent;
+
+    const result = confirm(message);
+    if(result){
+      this.adherents = this.adherents.filter(ad => ad !== adherent);
+      this.adherentsService.deleteAdherent(adherent.idAdherent).subscribe(
+        adherent => {/* Nothing to do here */},
+        error => console.error(error)
+      );
+    }
   }
 }
