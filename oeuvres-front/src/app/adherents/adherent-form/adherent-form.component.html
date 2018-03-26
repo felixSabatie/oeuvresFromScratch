@@ -7,7 +7,15 @@
            class="input"
            type="text"
            [(ngModel)]="adherent.nomAdherent"
-           name="name">
+           name="name"
+           #name="ngModel"
+           required>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+         class="notification is-danger">
+      <div *ngIf="name.errors.required">
+       Le nom est obligatoire
+      </div>
+    </div>
   </div>
 
   <div class="form-group">
@@ -18,7 +26,16 @@
            class="input"
            type="text"
            [(ngModel)]="adherent.prenomAdherent"
-           name="prenom">
+           name="prenom"
+           #prenom="ngModel"
+           required>
+
+    <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
+         class="notification is-danger">
+      <div *ngIf="prenom.errors.required">
+        Le prénom est obligatoire
+      </div>
+    </div>
   </div>
 
   <div class="form-group">
@@ -29,7 +46,16 @@
            class="input"
            type="text"
            [(ngModel)]="adherent.villeAdherent"
-           name="ville">
+           name="ville"
+           #ville="ngModel"
+           required>
+
+    <div *ngIf="ville.invalid && (ville.dirty || ville.touched)"
+         class="notification is-danger">
+      <div *ngIf="ville.errors.required">
+        La ville est obligatoire
+      </div>
+    </div>
   </div>
 
   <button type="submit" class="button is-primary">{{action}}</button>
