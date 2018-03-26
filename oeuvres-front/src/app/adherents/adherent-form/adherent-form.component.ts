@@ -12,6 +12,9 @@ export class AdherentFormComponent implements OnInit {
   @Input()
   adherent: Adherent;
 
+  @Input()
+  action: String;
+
   @Output()
   submit: EventEmitter<Adherent> = new EventEmitter<Adherent>();
 

@@ -10,6 +10,7 @@ import {AdherentsService} from "../adherents.service";
 export class AdherentCreateComponent implements OnInit {
 
   private adherent: Adherent = new Adherent();
+  private action: string = "Add";
 
   constructor(private adherentService: AdherentsService) { }
 

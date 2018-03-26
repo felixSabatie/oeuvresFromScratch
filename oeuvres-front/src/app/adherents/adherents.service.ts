@@ -27,4 +27,8 @@ export class AdherentsService {
       .map(adh => adh.json())
   }
 
+  getAdherentById(id: number): Observable<Adherent> {
+    return this.http.get(AdherentsService.apiUrl + "/" + id)
+      .map(adherent => adherent.json())
+  }
 }

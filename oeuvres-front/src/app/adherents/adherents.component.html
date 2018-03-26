@@ -2,7 +2,7 @@
   <h2 class="title is-2">Liste des adhérents</h2>
 
 
-  <a routerLink="/adherents/create" class="button is-outlined is-primary need-margin">Ajouter un adhérent</a>
+  <a routerLink="/adherents/create" class="button is-primary">Ajouter un adhérent</a>
 
   <div class="adherents content">
     <table class="table is-bordered is-striped">
@@ -21,8 +21,15 @@
         <td>{{ adherent.nomAdherent }}</td>
         <td>{{ adherent.prenomAdherent }}</td>
         <td>{{ adherent.villeAdherent }}</td>
-        <td><a class="button is-outlined is-primary"><i class="fa fa-edit"></i></a>
-          <a class="button is-outlined is-danger"><i class="fa fa-trash"></i></a></td>
+        <td>
+          <a routerLink="{{adherent.idAdherent}}/edit"
+             class="button is-outlined is-primary">
+            <i class="fa fa-edit"></i>
+          </a>
+          <a class="button is-outlined is-danger">
+            <i class="fa fa-trash"></i>
+          </a>
+        </td>
       </tr>
       </tbody>
     </table>
