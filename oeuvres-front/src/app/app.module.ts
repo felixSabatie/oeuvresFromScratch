@@ -40,6 +40,10 @@ const routes = [
     component: ReservationsComponent
   },
   {
+    path: 'reservations/create',
+    component: ReservationsComponent
+  },
+  {
     path: 'oeuvres',
     component: OeuvresComponent
   }
