@@ -30,7 +30,7 @@ export class ReservationFormComponent implements OnInit {
       adherents => this.adherents = adherents, error => console.error(error));
   }
 
-  notifyCreate() {
+  submitToParent() {
     this.submit.emit(this.reservation);
   }
 

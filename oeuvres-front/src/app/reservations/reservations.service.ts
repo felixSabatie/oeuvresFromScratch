@@ -17,4 +17,10 @@ export class ReservationsService {
       .get(ReservationsService.apiUrl)
       .map(reservation => reservation.json())
   }
+
+  createReservation(reservation: Reservation): Observable<Reservation> {
+    return this.http
+      .post(ReservationsService.apiUrl, reservation)
+      .map(reservation => reservation.json());
+  }
 }
