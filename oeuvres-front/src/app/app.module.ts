@@ -13,8 +13,8 @@ import {HomeComponent} from './home/home.component';
 import {ReservationsService} from "./reservations/reservations.service";
 import {OeuvresComponent} from './oeuvres/oeuvres.component';
 import {OeuvresService} from "./oeuvres/oeuvres.service";
-import { FormComponent } from './adherents/form/form.component';
-import { CreateComponent } from './adherents/create/create.component';
+import { AdherentFormComponent } from './adherents/adherent-form/adherent-form.component';
+import { AdherentCreateComponent } from './adherents/adherent-create/adherent-create.component';
 
 const routes = [
   {
@@ -27,7 +27,7 @@ const routes = [
   },
   {
     path: 'adherents/create',
-    component: CreateComponent
+    component: AdherentCreateComponent
   },
   {
     path: 'reservations',
@@ -47,8 +47,8 @@ const routes = [
     ReservationsComponent,
     HomeComponent,
     OeuvresComponent,
-    FormComponent,
-    CreateComponent
+    AdherentFormComponent,
+    AdherentCreateComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -1,6 +1,9 @@
 <div *ngIf="adherents">
   <h2 class="title is-2">Liste des adhérents</h2>
 
+
+  <a routerLink="/adherents/create" class="button is-outlined is-primary need-margin">Ajouter un adhérent</a>
+
   <div class="adherents content">
     <table class="table is-bordered is-striped">
       <thead>
@@ -24,7 +27,4 @@
       </tbody>
     </table>
   </div>
-
-  <a routerLink="/adherents/create" class="button is-outlined is-primary">Ajouter un adhérent</a>
-
 </div>

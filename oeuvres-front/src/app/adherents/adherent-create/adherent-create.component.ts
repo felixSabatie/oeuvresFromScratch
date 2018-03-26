@@ -4,10 +4,10 @@ import {AdherentsService} from "../adherents.service";
 
 @Component({
   selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  templateUrl: './adherent-create.component.html',
+  styleUrls: ['./adherent-create.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class AdherentCreateComponent implements OnInit {
 
   private adherent: Adherent = new Adherent();
 

@@ -1,13 +1,13 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Adherent} from "../../models/Adherent";
-import {AdherentsService} from "../adherents.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'adherent-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  templateUrl: './adherent-form.component.html',
+  styleUrls: ['./adherent-form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class AdherentFormComponent implements OnInit {
 
   @Input()
   adherent: Adherent;
@@ -15,13 +15,17 @@ export class FormComponent implements OnInit {
   @Output()
   submit: EventEmitter<Adherent> = new EventEmitter<Adherent>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
     this.submit.emit(this.adherent);
+    this.router.navigateByUrl('/adherents')
+      .catch(error => {
+        console.error(error);
+      });
   }
 
 }
