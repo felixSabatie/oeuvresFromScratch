@@ -16,7 +16,7 @@ export class AdherentFormComponent implements OnInit {
   action: String;
 
   @Output()
-  submit: EventEmitter<Adherent> = new EventEmitter<Adherent>();
+  emitter: EventEmitter<Adherent> = new EventEmitter<Adherent>();
 
   constructor(private router: Router) { }
 
@@ -24,11 +24,7 @@ export class AdherentFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submit.emit(this.adherent);
-    this.router.navigateByUrl('/adherents')
-      .catch(error => {
-        console.error(error);
-      });
+    this.emitter.emit(this.adherent);
   }
 
 }

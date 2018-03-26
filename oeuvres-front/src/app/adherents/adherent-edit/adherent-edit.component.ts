@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AdherentsService} from "../adherents.service";
 import {Adherent} from "../../models/Adherent";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-adherent-edit',
@@ -13,7 +13,9 @@ export class AdherentEditComponent implements OnInit {
   private adherent: Adherent = new Adherent();
   private action: string = "Edit";
 
-  constructor(private adherentService: AdherentsService, private route: ActivatedRoute) {
+  constructor(private adherentService: AdherentsService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -28,7 +30,13 @@ export class AdherentEditComponent implements OnInit {
 
   edit() {
     this.adherentService.editAdherent(this.adherent).subscribe(
-      adherent => this.adherent = adherent,
+      adherent => {
+        this.adherent = adherent;
+        this.router.navigateByUrl('/adherents')
+          .catch(error => {
+            console.error(error);
+          });
+      },
       error => console.error(error)
     )
   }
