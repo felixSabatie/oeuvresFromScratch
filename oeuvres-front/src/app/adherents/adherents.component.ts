@@ -9,6 +9,7 @@ import {AdherentsService} from "./adherents.service";
 })
 export class AdherentsComponent implements OnInit {
   adherents: Adherent[];
+  selectedAdherent: Adherent;
 
   constructor(private adherentsService: AdherentsService) {
   }

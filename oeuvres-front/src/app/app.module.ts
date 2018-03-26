@@ -13,6 +13,8 @@ import {HomeComponent} from './home/home.component';
 import {ReservationsService} from "./reservations/reservations.service";
 import {OeuvresComponent} from './oeuvres/oeuvres.component';
 import {OeuvresService} from "./oeuvres/oeuvres.service";
+import { FormComponent } from './adherents/form/form.component';
+import { CreateComponent } from './adherents/create/create.component';
 
 const routes = [
   {
@@ -22,6 +24,10 @@ const routes = [
   {
     path: 'adherents',
     component: AdherentsComponent
+  },
+  {
+    path: 'adherents/create',
+    component: CreateComponent
   },
   {
     path: 'reservations',
@@ -40,7 +46,9 @@ const routes = [
     NavbarComponent,
     ReservationsComponent,
     HomeComponent,
-    OeuvresComponent
+    OeuvresComponent,
+    FormComponent,
+    CreateComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -39,7 +39,7 @@ public class OeuvrePret {
 		this.titreOeuvrepret = titreOeuvrepret;
 	}
 
-	@JsonBackReference
+	@JsonBackReference(value = "oeuvrePret-proprietaire")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_proprietaire", insertable = false, updatable = false)
 	public Proprietaire getProprietaire() {

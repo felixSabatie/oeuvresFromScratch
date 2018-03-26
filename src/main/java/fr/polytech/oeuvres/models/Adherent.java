@@ -1,6 +1,9 @@
 package fr.polytech.oeuvres.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -65,7 +68,8 @@ public class Adherent {
 	}
 
 	// JsonManagedReference pour chaque objet qui fait du OneToMany et qui load tout
-	@JsonManagedReference
+	@JsonManagedReference(value = "adherent-reservation")
+	@JsonIgnore
 	@OneToMany(mappedBy = "adherent", cascade = CascadeType.ALL)
 	public Set<Reservation> getReservations() {
 		return this.reservations;
