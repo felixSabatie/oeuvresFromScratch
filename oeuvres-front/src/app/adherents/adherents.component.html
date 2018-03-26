@@ -2,7 +2,7 @@
   <h2 class="title is-2">Liste des adhérents</h2>
   <a routerLink="/adherents/create" class="button is-primary">Ajouter un adhérent</a>
 
-  <div class="adherents content">
+  <div class="adherents content" *ngIf="adherents.length > 0">
     <table class="table is-bordered is-striped">
       <thead>
       <tr>
@@ -31,5 +31,9 @@
       </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="adherent content" *ngIf="adherents.length == 0">
+    Aucun adhérent n'est présent ! Ajoutez en un :)
   </div>
 </div>
