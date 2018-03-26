@@ -1,5 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Reservation} from "../../models/Reservation";
+import {OeuvresService} from "../../oeuvres/oeuvres.service";
+import {AdherentsService} from "../../adherents/adherents.service";
+import {OeuvreVente} from "../../models/OeuvreVente";
+import {Adherent} from "../../models/Adherent";
 
 @Component({
   selector: 'reservation-form',
@@ -13,13 +17,25 @@ export class ReservationFormComponent implements OnInit {
   @Output()
   private submit: EventEmitter<Reservation> = new EventEmitter<Reservation>();
 
-  constructor() { }
+  private oeuvres: OeuvreVente[];
+  private adherents: Adherent[];
+
+  constructor(private oeuvresService: OeuvresService, private adherentsService: AdherentsService) {
+  }
 
   ngOnInit() {
+    this.oeuvresService.getOeuvres().subscribe(
+      oeuvres => this.oeuvres = oeuvres, error => console.error(error));
+    this.adherentsService.getAdherents().subscribe(
+      adherents => this.adherents = adherents, error => console.error(error));
   }
 
   notifyCreate() {
     this.submit.emit(this.reservation);
+  }
+
+  displayForm(): boolean {
+    return this.reservation != null && this.adherents != null && this.reservation != null;
   }
 
 }
