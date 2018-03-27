@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {Reservation} from "../../models/Reservation";
+import {ReservationsService} from "../reservations.service";
 
 @Component({
   selector: 'app-reservation-edit',
@@ -7,12 +9,28 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./reservation-edit.component.scss']
 })
 export class ReservationEditComponent implements OnInit {
-  private id: number;
+  private reservation: Reservation;
+  private error: boolean = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private reservationsService: ReservationsService,
+              private router: Router) {
+  }
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
+    let reservationId = this.route.snapshot.params['id'];
+    this.reservationsService.getReservation(reservationId).subscribe(
+      reservation => this.reservation = reservation,
+      error => {
+        console.error(error);
+        this.error = true;
+      }
+    );
+  }
+
+  editReservation() {
+    this.reservationsService.editReservation(this.reservation).subscribe(
+      reservation => this.router.navigateByUrl('/reservations'), error => console.error(error)
+    );
   }
 
 }
