@@ -1,8 +1,8 @@
-<form (ngSubmit)="submitToParent()" *ngIf="displayForm">
+<form (ngSubmit)="submitToParent()" *ngIf="displayForm" [formGroup]="reservationForm">
   <div class="field">
     <label class="label" for="select-adherent">Sélectionner un adhérent :</label>
-    <div class="select" [ngClass]="adherentSelect.invalid ? 'is-danger' : 'is-success'">
-      <select name="id-adherent" id="select-adherent" #adherentSelect="ngModel"
+    <div class="select" [ngClass]="(adherentSelect.invalid && (adherentSelect.dirty || adherentSelect.touched)) ? 'is-danger' : ''">
+      <select name="id-adherent" id="select-adherent" formControlName="adherentSelect"
               [(ngModel)]="reservation.idAdherent" required>
         <option *ngFor="let adherent of adherents" [value]="adherent.idAdherent">
           {{ adherent.prenomAdherent }} {{ adherent.nomAdherent }}
@@ -13,9 +13,9 @@
 
   <div class="field">
     <label class="label" for="select-oeuvre">Sélectionner une oeuvre :</label>
-    <div class="select" [ngClass]="oeuvreSelect.invalid ? 'is-danger' : 'is-success'">
+    <div class="select" [ngClass]="(oeuvreSelect.invalid && (oeuvreSelect.dirty || oeuvreSelect.touched)) ? 'is-danger' : ''">
       <select name="id-oeuvre-vente" id="select-oeuvre"
-              [(ngModel)]="reservation.idOeuvrevente" #oeuvreSelect="ngModel" required>
+              [(ngModel)]="reservation.idOeuvrevente" formControlName="oeuvreSelect" required>
         <option *ngFor="let oeuvre of oeuvres" [value]="oeuvre.idOeuvrevente">
           {{ oeuvre.titreOeuvrevente }}
         </option>
@@ -26,19 +26,25 @@
   <div class="field">
     <label for="date" class="label">Date de la réservation :</label>
     <div class="control">
-      <input [(ngModel)]="reservation.dateReservation" name="date"
-             [ngClass]="dateInput.invalid ? 'is-danger' : 'is-success'"
-             type="date" class="input" id="date" #dateInput="ngModel" required>
+      <input [(ngModel)]="reservation.dateReservation" name="date" formControlName="dateInput"
+             [ngClass]="(dateInput.invalid && (dateInput.dirty || dateInput.touched)) ? 'is-danger' : ''"
+             type="date" class="input" id="date" required>
     </div>
+    <p class="help is-danger" *ngIf="dateInput.invalid && (dateInput.dirty || dateInput.touched)">
+      Renseigner une date valide
+    </p>
   </div>
 
   <div class="field">
     <label for="statut" class="label">Statut de la réservation :</label>
     <div class="control">
-      <input [(ngModel)]="reservation.statut" name="statut"
-             [ngClass]="statutInput.invalid ? 'is-danger' : 'is-success'"
-             type="text" class="input" id="statut" #statutInput="ngModel" required>
+      <input [(ngModel)]="reservation.statut" name="statut" formControlName="statutInput"
+             [ngClass]="(statutInput.invalid && (statutInput.dirty || statutInput.touched)) ? 'is-danger' : ''"
+             type="text" class="input" id="statut" required>
     </div>
+    <p class="help is-danger" *ngIf="statutInput.invalid && (statutInput.dirty || statutInput.touched)">
+      Renseigner un statut de réservation
+    </p>
   </div>
 
   <div class="field is-grouped">
