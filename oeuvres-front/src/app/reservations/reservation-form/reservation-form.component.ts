@@ -35,7 +35,7 @@ export class ReservationFormComponent implements OnInit {
   }
 
   displayForm(): boolean {
-    return this.reservation != null && this.adherents != null && this.reservation != null;
+    return this.oeuvres != null && this.adherents != null && this.reservation != null;
   }
 
 }
