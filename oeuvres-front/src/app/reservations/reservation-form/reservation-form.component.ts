@@ -15,7 +15,7 @@ export class ReservationFormComponent implements OnInit {
   private reservation: Reservation;
 
   @Output()
-  private submit: EventEmitter<Reservation> = new EventEmitter<Reservation>();
+  private submitReservation: EventEmitter<Reservation> = new EventEmitter<Reservation>();
 
   private oeuvres: OeuvreVente[];
   private adherents: Adherent[];
@@ -31,7 +31,7 @@ export class ReservationFormComponent implements OnInit {
   }
 
   submitToParent() {
-    this.submit.emit(this.reservation);
+    this.submitReservation.emit(this.reservation);
   }
 
   displayForm(): boolean {
