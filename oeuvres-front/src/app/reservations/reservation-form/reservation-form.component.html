@@ -1,8 +1,9 @@
 <form (ngSubmit)="submitToParent()" *ngIf="displayForm">
   <div class="field">
     <label class="label" for="select-adherent">Sélectionner un adhérent :</label>
-    <div class="select">
-      <select name="id-adherent" id="select-adherent" [(ngModel)]="reservation.idAdherent" required>
+    <div class="select" [ngClass]="adherentSelect.invalid ? 'is-danger' : 'is-success'">
+      <select name="id-adherent" id="select-adherent" #adherentSelect="ngModel"
+              [(ngModel)]="reservation.idAdherent" required>
         <option *ngFor="let adherent of adherents" [value]="adherent.idAdherent">
           {{ adherent.prenomAdherent }} {{ adherent.nomAdherent }}
         </option>
@@ -12,8 +13,9 @@
 
   <div class="field">
     <label class="label" for="select-oeuvre">Sélectionner une oeuvre :</label>
-    <div class="select">
-      <select name="id-oeuvre-vente" id="select-oeuvre" [(ngModel)]="reservation.idOeuvrevente" required>
+    <div class="select" [ngClass]="oeuvreSelect.invalid ? 'is-danger' : 'is-success'">
+      <select name="id-oeuvre-vente" id="select-oeuvre"
+              [(ngModel)]="reservation.idOeuvrevente" #oeuvreSelect="ngModel" required>
         <option *ngFor="let oeuvre of oeuvres" [value]="oeuvre.idOeuvrevente">
           {{ oeuvre.titreOeuvrevente }}
         </option>
@@ -24,20 +26,24 @@
   <div class="field">
     <label for="date" class="label">Date de la réservation :</label>
     <div class="control">
-      <input [(ngModel)]="reservation.dateReservation" name="date" type="date" class="input" id="date" required>
+      <input [(ngModel)]="reservation.dateReservation" name="date"
+             [ngClass]="dateInput.invalid ? 'is-danger' : 'is-success'"
+             type="date" class="input" id="date" #dateInput="ngModel" required>
     </div>
   </div>
 
   <div class="field">
     <label for="statut" class="label">Statut de la réservation :</label>
     <div class="control">
-      <input [(ngModel)]="reservation.statut" name="statut" type="text" class="input" id="statut" required>
+      <input [(ngModel)]="reservation.statut" name="statut"
+             [ngClass]="statutInput.invalid ? 'is-danger' : 'is-success'"
+             type="text" class="input" id="statut" #statutInput="ngModel" required>
     </div>
   </div>
 
   <div class="field is-grouped">
     <div class="control">
-      <button class="button is-link" type="submit">Envoyer</button>
+      <button class="button is-link" type="submit" [disabled]="!reservationForm.valid">Envoyer</button>
     </div>
     <div class="control">
       <a class="button is-text" routerLink="/reservations">Retour</a>
