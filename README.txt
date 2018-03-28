@@ -21,6 +21,10 @@ oeuvres-front/proxy.config.json.
 
 Liste des fonctionalités : 
 
+
+- Utilisation de Spring boot
+- Utilisation des EntityRepository
+- Dévellopement d'une API RESTful
 - Ajout/Modification/Suppression/Liste des Adhérents
 - Ajout/Modification/Suppression/Liste des Oeuvres
 - Réservation des oeuvres (avec modification de l'état de l'oeuvre en conséquent)
