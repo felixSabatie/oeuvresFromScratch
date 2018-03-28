@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bulma/bulma";
+@import "colors";
+$fa-font-path: '../node_modules/font-awesome/fonts';
+@import "../node_modules/font-awesome/scss/font-awesome";
+
+.container {
+  width: 960px;
+  max-width: 960px;
+}
+
+.button {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

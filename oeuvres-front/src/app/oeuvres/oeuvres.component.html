@@ -1,0 +1,38 @@
+<div *ngIf="oeuvres">
+  <h2 class="title is-2">Liste des oeuvres</h2>
+  <a routerLink="/oeuvres/create" class="button is-primary">Ajouter une oeuvre</a>
+
+  <div class="oeuvres content" *ngIf="oeuvres.length > 0">
+    <table class="table is-bordered is-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>Etat</th>
+        <th>Prix</th>
+        <!--<th>Rervations</th>-->
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let oeuvre of oeuvres">
+        <td>{{ oeuvre.idOeuvrevente }}</td>
+        <td>{{ oeuvre.titreOeuvrevente }}</td>
+        <td>{{ oeuvre.etatOeuvrevente }}</td>
+        <td>{{ oeuvre.prixOeuvrevente }}</td>
+        <td>
+          <a routerLink="{{oeuvre.idOeuvrevente}}/edit"
+             class="button is-outlined is-primary"><i class="fa fa-edit"></i>
+          </a>
+          <a class="button is-outlined is-danger" (click)="delete(oeuvre)">
+            <i class="fa fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="oeuvre content" *ngIf="oeuvres.length == 0">
+    Aucune oeuvre n'est présente ! Ajoutez en une :)
+  </div>
+</div>
