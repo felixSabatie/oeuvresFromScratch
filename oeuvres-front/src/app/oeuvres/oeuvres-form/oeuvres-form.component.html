@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #oeuvreForm="ngForm">
   <div class="form-group">
     <label for="title" class="label">
       Titre
@@ -39,6 +39,10 @@
     </div>
   </div>
 
-  <button type="submit" class="button is-primary">{{action}}</button>
+  <button type="submit"
+          class="button is-primary"
+          [disabled]="oeuvreForm.invalid">
+    {{action}}
+  </button>
 
 </form>
