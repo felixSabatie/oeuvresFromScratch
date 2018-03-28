@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" >
+<form (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="title" class="label">
       Titre
@@ -19,32 +19,12 @@
   </div>
 
   <div class="form-group">
-    <label for="state" class="label">
-      État de l'oeuvre
-    </label>
-    <input id="state"
-           class="input"
-           type="text"
-           [(ngModel)]="oeuvre.etatOeuvrevente"
-           name="state"
-           #state="ngModel"
-           required>
-
-    <div *ngIf="state.invalid && (state.dirty || state.touched)"
-         class="notification is-danger">
-      <div *ngIf="state.errors.required">
-        L'état est obligatoire
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
     <label for="price" class="label">
-      Ville
+      Prix
     </label>
     <input id="price"
            class="input"
-           type="text"
+           type="number"
            [(ngModel)]="oeuvre.prixOeuvrevente"
            name="price"
            #price="ngModel"
@@ -55,6 +35,7 @@
       <div *ngIf="price.errors.required">
         Le prix est obligatoire
       </div>
+      <!--todo : mettre un mesg specifique au prix en chiffre-->
     </div>
   </div>
 

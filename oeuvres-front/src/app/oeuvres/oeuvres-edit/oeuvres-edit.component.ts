@@ -29,6 +29,7 @@ export class OeuvresEditComponent implements OnInit {
   }
 
   edit() {
+    console.log(this.oeuvre);
     this.oeuvreService.editOeuvre(this.oeuvre).subscribe(
       oeuvre => {
         this.oeuvre = oeuvre;

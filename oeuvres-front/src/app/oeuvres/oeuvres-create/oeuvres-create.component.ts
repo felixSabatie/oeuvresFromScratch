@@ -19,9 +19,9 @@ export class OeuvresCreateComponent implements OnInit {
   }
 
   post() {
+    this.oeuvre.etatOeuvrevente = 'L';
     this.oeuvreService.addOeuvre(this.oeuvre).subscribe(
       oeuvre => {
-        console.log(oeuvre);
         this.oeuvre = oeuvre;
         this.router.navigateByUrl('/oeuvres')
           .catch(error => {

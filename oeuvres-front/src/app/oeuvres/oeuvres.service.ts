@@ -23,7 +23,7 @@ export class OeuvresService {
   }
 
   editOeuvre(oeuvre: OeuvreVente): Observable<OeuvreVente> {
-    return this.http.get(OeuvresService.apiUrl + "/" + oeuvre.idOeuvrevente, oeuvre)
+    return this.http.put(OeuvresService.apiUrl + "/" + oeuvre.idOeuvrevente, oeuvre)
       .map(oeuv => oeuv.json())
   }
 

@@ -80,7 +80,7 @@ const routes = [
     AdherentEditComponent,
     ReservationFormComponent,
     ReservationCreateComponent,
-    ReservationEditComponent
+    ReservationEditComponent,
     AdherentEditComponent,
     OeuvresCreateComponent,
     OeuvresEditComponent,
