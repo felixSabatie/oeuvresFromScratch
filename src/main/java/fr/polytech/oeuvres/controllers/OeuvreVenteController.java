@@ -1,7 +1,6 @@
 package fr.polytech.oeuvres.controllers;
 
 import fr.polytech.oeuvres.exceptions.ResourceNotFoundException;
-import fr.polytech.oeuvres.models.OeuvrePret;
 import fr.polytech.oeuvres.models.OeuvreVente;
 import fr.polytech.oeuvres.repositories.OeuvreVenteRepository;
 import java.util.List;

@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class AdherentEditComponent implements OnInit {
 
   private adherent: Adherent = new Adherent();
-  private action: string = "Edit";
+  private action: string = "Modifier";
 
   constructor(private adherentService: AdherentsService,
               private route: ActivatedRoute,

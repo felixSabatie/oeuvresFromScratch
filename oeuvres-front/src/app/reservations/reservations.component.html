@@ -1,27 +1,44 @@
-<h2 class="title is-2">Liste des réservations</h2>
+<div *ngIf="reservations">
+  <h2 class="title is-2">Liste des réservations</h2>
 
-<div class="reservations content" *ngIf="reservations">
-  <table class="table is-bordered is-striped">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Id Oeuvre Vente</th>
-      <th>Id adhérent</th>
-      <th>Date réservation</th>
-      <th>Statut</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let reservation of reservations">
-      <td>{{ reservation.idReservation }}</td>
-      <td>{{ reservation.idOeuvrevente }}</td>
-      <td>{{ reservation.idAdherent }}</td>
-      <td>{{ reservation.dateReservation }}</td>
-      <td>{{ reservation.statut }}</td>
-      <td><a class="button is-outlined is-primary"><i class="fa fa-edit"></i></a>
-        <a class="button is-outlined is-danger"><i class="fa fa-trash"></i></a></td>
-    </tr>
-    </tbody>
-  </table>
+  <a routerLink="/reservations/create" class="button is-outlined is-primary add-adherent">Ajouter une réservation</a>
+
+  <div *ngIf="reservations.length > 0">
+    <div class="reservations content">
+      <table class="table is-bordered is-striped">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Id Oeuvre Vente</th>
+          <th>Id adhérent</th>
+          <th>Date réservation</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let reservation of reservations">
+          <td>{{ reservation.idReservation }}</td>
+          <td>{{ reservation.idOeuvrevente }}</td>
+          <td>{{ reservation.idAdherent }}</td>
+          <td>{{ reservation.dateReservation }}</td>
+          <td>{{ reservation.statut }}</td>
+          <td>
+            <a class="button is-outlined is-primary" routerLink="/reservations/{{ reservation.idReservation }}/edit">
+              <i class="fa fa-edit"></i>
+            </a>
+            <button class="button is-outlined is-danger" (click)="deleteReservation(reservation)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="reservations.length === 0">
+    Pas de réservation pour l'instant...
+  </div>
+
 </div>

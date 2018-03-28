@@ -17,7 +17,7 @@ export class AdherentsService {
       .map(adherents => adherents.json());
   }
 
-  addAdherents(adherent: Adherent): Observable<Adherent> {
+  addAdherent(adherent: Adherent): Observable<Adherent> {
     return this.http.post(AdherentsService.apiUrl, adherent)
       .map(adherent => adherent.json())
   }
