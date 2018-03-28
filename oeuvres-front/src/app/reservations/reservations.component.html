@@ -24,9 +24,6 @@
           <td>{{ reservation.dateReservation }}</td>
           <td>{{ reservation.statut }}</td>
           <td>
-            <a class="button is-outlined is-primary" routerLink="/reservations/{{ reservation.idReservation }}/edit">
-              <i class="fa fa-edit"></i>
-            </a>
             <button class="button is-outlined is-danger" (click)="deleteReservation(reservation)">
               <i class="fa fa-trash"></i>
             </button>
