@@ -4,6 +4,7 @@ import fr.polytech.oeuvres.exceptions.ResourceNotFoundException;
 import fr.polytech.oeuvres.models.OeuvreVente;
 import fr.polytech.oeuvres.repositories.OeuvreVenteRepository;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -67,5 +68,12 @@ public class OeuvreVenteController extends Controller {
 
 		return ResponseEntity.ok().build();
 
+	}
+
+	@GetMapping("/oeuvresvente/free")
+	public List<OeuvreVente> getOeuvresFree() {
+		return oeuvreVenteRepository.findAll().stream()
+			.filter(oeuvreVente -> "L".equals(oeuvreVente.getEtatOeuvrevente()))
+			.collect(Collectors.toList());
 	}
 }

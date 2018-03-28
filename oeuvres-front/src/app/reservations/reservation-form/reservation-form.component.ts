@@ -26,7 +26,7 @@ export class ReservationFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.oeuvresService.getOeuvres().subscribe(
+    this.oeuvresService.getOeuvresFree().subscribe(
       oeuvres => this.oeuvres = oeuvres, error => console.error(error));
     this.adherentsService.getAdherents().subscribe(
       adherents => this.adherents = adherents, error => console.error(error));

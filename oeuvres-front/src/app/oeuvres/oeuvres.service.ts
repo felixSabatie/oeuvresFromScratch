@@ -37,5 +37,8 @@ export class OeuvresService {
     return this.http.delete(OeuvresService.apiUrl + "/" + id)
   }
 
-
+  getOeuvresFree(): Observable<OeuvreVente[]> {
+    return this.http.get(OeuvresService.apiUrl+"/free")
+      .map(oeuvre => oeuvre.json())
+  }
 }
