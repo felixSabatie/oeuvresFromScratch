@@ -67,10 +67,10 @@ CREATE TABLE `oeuvrevente` (
 
 INSERT INTO `oeuvrevente` (`id_oeuvrevente`, `titre_oeuvrevente`, `etat_oeuvrevente`, `prix_oeuvrevente`) VALUES
 (10000, 'lala', 'L', 12),
-(10001, 'Ete', 'R', 400),
+(10001, 'Ete', 'L', 400),
 (10002, 'Automne', 'L', 10),
-(10003, 'Crepuscule', 'R', 111),
-(10004, 'Hiver', 'R', 234),
+(10003, 'Crepuscule', 'L', 111),
+(10004, 'Hiver', 'L', 234),
 (10005, 'Aurore', 'L', 654),
 (10006, 'Nuit de printemps', 'L', 789),
 (10007, 'nouvelle Oeuvre 2', 'L', 12);
@@ -89,13 +89,6 @@ CREATE TABLE `reservation` (
   `id_reservation` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `reservation`
---
-
-INSERT INTO `reservation` (`id_oeuvrevente`, `id_adherent`, `date_reservation`, `statut`, `id_reservation`) VALUES
-(10003, 3, '2013-02-22', 'confirmee', 1),
-(10004, 7, '2013-02-22', 'confirmee', 2);
 
 --
 -- Index pour les tables exportées
