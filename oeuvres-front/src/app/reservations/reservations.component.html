@@ -9,18 +9,18 @@
         <thead>
         <tr>
           <th>Id</th>
-          <th>Id Oeuvre Vente</th>
-          <th>Id adhérent</th>
+          <th>Oeuvre</th>
+          <th>Adhérent</th>
           <th>Date réservation</th>
           <th>Statut</th>
           <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let reservation of reservations">
+        <tr *ngFor="let reservation of reservations" >
           <td>{{ reservation.idReservation }}</td>
-          <td>{{ reservation.idOeuvrevente }}</td>
-          <td>{{ reservation.idAdherent }}</td>
+          <td *ngIf="reservation.oeuvreVente">{{ reservation.oeuvreVente.titreOeuvrevente }}</td>
+          <td *ngIf="reservation.adherent">{{ reservation.adherent.prenomAdherent }} {{ reservation.adherent.nomAdherent }}</td>
           <td>{{ reservation.dateReservation }}</td>
           <td>{{ reservation.statut }}</td>
           <td>

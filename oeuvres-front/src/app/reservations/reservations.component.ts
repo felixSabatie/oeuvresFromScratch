@@ -17,8 +17,13 @@ export class ReservationsComponent implements OnInit {
 
   ngOnInit() {
     this.reservationsService.getReservations().subscribe(
-      reservations => this.reservations = reservations,
-      error => console.error(error)
+      reservations => {
+        reservations.forEach(reservation => {
+          this.reservationsService.getAdherent(reservation);
+          this.reservationsService.getOeuvre(reservation);
+        });
+        this.reservations = reservations;
+      }, error => console.error(error)
     );
   }
 
