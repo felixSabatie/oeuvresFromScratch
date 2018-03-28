@@ -3,6 +3,8 @@ Projet oeuvres
 REGNARD Mathieu, SABATIE Félix, MARCHAND Simon
 
 Nous avons changé la base de données, veuillez importer le script oeuvres.sql. 
+Veuillez vérifier les paramètres d'accès à la base de données depuis le fichier
+src/main/resources/application.properties
 
 
 La vue a été réalisée avec Angular 2.
@@ -28,7 +30,9 @@ Liste des fonctionalités :
 - Ajout/Modification/Suppression/Liste des Adhérents
 - Ajout/Modification/Suppression/Liste des Oeuvres
 - Réservation des oeuvres (avec modification de l'état de l'oeuvre en conséquent)
-- Validation de formulaire avec Angular ce qui permet de prévenir l'utilisateur lorsqu'une erreur est présente dans les champs.
+- Tri sur les oeuvres réservés (on ne peut pas réserver une oeuvre déja réservée !)
+- Validation de formulaire avec Angular ce qui permet de prévenir l'utilisateur lorsqu'une erreur est présente
+  dans les champs. 
 - Auto-refresh des données grâce au databinding d'Angular.
 - Application en une seule page (pas de rafraîchissement lorsque l'on navigue dans les différents éléments).
 - Intégration de template de CSS minimaliste (Bulma.css)
