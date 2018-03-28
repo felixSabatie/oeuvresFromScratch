@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
+import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import {Reservation} from "../models/Reservation";
@@ -34,5 +34,9 @@ export class ReservationsService {
     return this.http
       .put(ReservationsService.apiUrl + '/' + reservation.idReservation, reservation)
       .map(reservation => reservation.json());
+  }
+
+  deleteReservation(reservation: Reservation): Observable<Response> {
+    return this.http.delete(ReservationsService.apiUrl + '/' + reservation.idReservation);
   }
 }
