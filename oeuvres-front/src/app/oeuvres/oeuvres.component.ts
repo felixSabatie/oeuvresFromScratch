@@ -19,4 +19,16 @@ export class OeuvresComponent implements OnInit {
       .subscribe(oeuvres => this.oeuvres = oeuvres)
   }
 
+  delete(oeuvre : OeuvreVente){
+    const message = "Confirmer la suppresion de " + oeuvre.titreOeuvrevente;
+    const result = confirm(message);
+    if(result) {
+      this.oeuvres = this.oeuvres.filter(oe => oe !== oeuvre);
+      this.oeuvreService.deleteOeuvre(oeuvre.idOeuvrevente).subscribe(
+        oeuvre => {/* Nothing to do here */
+        },
+        error => console.error(error)
+      );
+    }
+  }
 }

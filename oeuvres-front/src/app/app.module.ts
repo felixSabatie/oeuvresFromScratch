@@ -16,6 +16,9 @@ import {OeuvresService} from "./oeuvres/oeuvres.service";
 import { AdherentFormComponent } from './adherents/adherent-form/adherent-form.component';
 import { AdherentCreateComponent } from './adherents/adherent-create/adherent-create.component';
 import { AdherentEditComponent } from './adherents/adherent-edit/adherent-edit.component';
+import { OeuvresCreateComponent } from './oeuvres/oeuvres-create/oeuvres-create.component';
+import { OeuvresEditComponent } from './oeuvres/oeuvres-edit/oeuvres-edit.component';
+import { OeuvresFormComponent } from './oeuvres/oeuvres-form/oeuvres-form.component';
 import { ReservationFormComponent } from './reservations/reservation-form/reservation-form.component';
 import { ReservationCreateComponent } from './reservations/reservation-create/reservation-create.component';
 import { ReservationEditComponent } from './reservations/reservation-edit/reservation-edit.component';
@@ -53,6 +56,14 @@ const routes = [
   {
     path: 'oeuvres',
     component: OeuvresComponent
+  },
+  {
+    path: 'oeuvres/create',
+    component: OeuvresCreateComponent
+  },
+  {
+    path: 'oeuvres/:id/edit',
+    component : OeuvresEditComponent
   }
 ];
 
@@ -70,6 +81,10 @@ const routes = [
     ReservationFormComponent,
     ReservationCreateComponent,
     ReservationEditComponent
+    AdherentEditComponent,
+    OeuvresCreateComponent,
+    OeuvresEditComponent,
+    OeuvresFormComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

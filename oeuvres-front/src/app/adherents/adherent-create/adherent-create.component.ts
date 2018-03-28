@@ -4,14 +4,14 @@ import {AdherentsService} from "../adherents.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-create',
+  selector: 'adherent-create',
   templateUrl: './adherent-create.component.html',
   styleUrls: ['./adherent-create.component.scss']
 })
 export class AdherentCreateComponent implements OnInit {
 
   private adherent: Adherent = new Adherent();
-  private action: string = "Add";
+  private action: string = "Ajouter";
 
   constructor(private adherentService: AdherentsService, private router: Router) { }
 
@@ -19,7 +19,7 @@ export class AdherentCreateComponent implements OnInit {
   }
 
   post() {
-    this.adherentService.addAdherents(this.adherent).subscribe(
+    this.adherentService.addAdherent(this.adherent).subscribe(
       adherent => {
         this.adherent = adherent;
         this.router.navigateByUrl('/adherents')
