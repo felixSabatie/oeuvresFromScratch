@@ -1,0 +1,8 @@
+<div *ngIf="reservation">
+  <h2 class="title is-2">Editer la réservation</h2>
+  <reservation-form [reservation]="reservation" (submitReservation)="editReservation()"></reservation-form>
+</div>
+
+<div *ngIf="error">
+  <h3 class="title is-3">Réservation non trouvée</h3>
+</div>

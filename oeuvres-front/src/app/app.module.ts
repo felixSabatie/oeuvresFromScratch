@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
@@ -16,6 +16,9 @@ import {OeuvresService} from "./oeuvres/oeuvres.service";
 import { AdherentFormComponent } from './adherents/adherent-form/adherent-form.component';
 import { AdherentCreateComponent } from './adherents/adherent-create/adherent-create.component';
 import { AdherentEditComponent } from './adherents/adherent-edit/adherent-edit.component';
+import { ReservationFormComponent } from './reservations/reservation-form/reservation-form.component';
+import { ReservationCreateComponent } from './reservations/reservation-create/reservation-create.component';
+import { ReservationEditComponent } from './reservations/reservation-edit/reservation-edit.component';
 
 // TODO 26/03/2018 Irindul : Routes with child rather than adherent, adherent/create ect...
 const routes = [
@@ -40,6 +43,14 @@ const routes = [
     component: ReservationsComponent
   },
   {
+    path: 'reservations/create',
+    component: ReservationCreateComponent
+  },
+  {
+    path: 'reservations/:id/edit',
+    component: ReservationEditComponent
+  },
+  {
     path: 'oeuvres',
     component: OeuvresComponent
   }
@@ -55,12 +66,16 @@ const routes = [
     OeuvresComponent,
     AdherentFormComponent,
     AdherentCreateComponent,
-    AdherentEditComponent
+    AdherentEditComponent,
+    ReservationFormComponent,
+    ReservationCreateComponent,
+    ReservationEditComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [

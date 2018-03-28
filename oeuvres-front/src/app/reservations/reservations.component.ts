@@ -21,4 +21,13 @@ export class ReservationsComponent implements OnInit {
     );
   }
 
+  deleteReservation(reservation: Reservation) {
+    if(window.confirm('Supprimer la réservation ' + reservation.idReservation + ' ?')) {
+      this.reservationsService.deleteReservation(reservation).subscribe(
+        success => {
+          this.reservations = this.reservations.filter(res => res.idReservation !== reservation.idReservation);
+        }, error => console.error(error));
+    }
+  }
+
 }
